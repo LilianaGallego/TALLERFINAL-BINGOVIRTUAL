@@ -1,13 +1,31 @@
 const User = require("../models/user.model");
 
+/**
+ * Para obtener sesion de usuario
+ *
+ * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+ * @since 1.0.0
+ */
 exports.getUserSignIn = async (req, res) => {
   res.render('users/signin')
 }
 
+/**
+ * Para cerrar  sesion de usuario
+ *
+ * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+ * @since 1.0.0
+ */
 exports.getUserSignUp = async (req, res) => {
   res.render('users/signup')
 }
 
+/**
+ * Para crear la sesion de usuario con su usuario y contraseña
+ *
+ * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+ * @since 1.0.0
+ */
 exports.postUserSignUp = async (req, res) => {
   const {username, password} = req.body;
   const errors = [];

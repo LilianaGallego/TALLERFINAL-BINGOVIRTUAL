@@ -8,14 +8,20 @@ const userRouter = require("./routes/users.routes");
 const app = express();
 const session = require('express-session');
 
-//CONEXION A LA BD
+/**
+ * CONEXION A LA BD
+ */
 connectionDB();
 
-//CONFIGURACIONES
+/**
+ * CONFIGURACIONES
+ */
 app.set("name", "rest-api-login");
 app.set("port", process.env.port || 3000);
 
-//MIDDLEWARE
+/**
+ * MIDDLEWARE
+ */
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(express.urlencoded({extended: false}));
@@ -27,7 +33,9 @@ app.use(session({
 }));
 
 
-//LLAMADO DE RUTAS
+/**
+ * LLAMADO DE RUTAS
+ */
 app.use(express.static("public"));
 app.use("/api/v1", userRouter);
 

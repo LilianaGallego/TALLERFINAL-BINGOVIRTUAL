@@ -2,6 +2,12 @@ const mongoose = require("mongoose");
 const uuid = require("uuid");
 const bcrypt = require("bcrypt");
 
+/**
+ * Esquema de un usuario
+ *
+ * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+ * @since 1.0.0
+ */
 const saltRounds = 10;
 UserSchema = new mongoose.Schema({
   _id: {
