@@ -1,0 +1,27 @@
+{
+  "name": "rest-api-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx nodemon index.js",
+    "debug": "SET DEBUG=rest-api-login:*& set SCOPE=development& nodemon  --inspect index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.4.2",
+    "morgan": "^1.10.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  }
+}
