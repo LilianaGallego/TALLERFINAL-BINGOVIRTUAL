@@ -1,0 +1,28 @@
+body{
+    background-color: rgb(242, 250, 215);
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+}
+
+
+#btnStart{
+    display: none;
+    text-decoration: none;
+    width: 20%;
+    font-size: 30px;
+    text-align: center;
+
+}
+.content{
+    font-family: "Lobster", cursive;
+    text-align: center;
+    padding: 100px;
+}
+
+#start{
+    margin-left: 500px;
+    padding-top: 100px;
+}
