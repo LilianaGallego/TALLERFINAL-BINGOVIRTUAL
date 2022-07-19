@@ -1,12 +1,15 @@
-const path = require("path");
+const express = require('express');
+const app = express();
+const exphbs = require('express-handlebars');
+const path = require('path');
 const morgan = require("morgan");
-const bcrypt = require('bcrypt');
-const express = require("express");
+const session = require('express-session');
 const connectionDB = require("./db.connection");
 const methodOverride = require('method-override')
 const userRouter = require("./routes/users.routes");
-const app = express();
-const session = require('express-session');
+const flash = require('connect-flash')
+
+
 
 /**
  * CONEXION A LA BD
@@ -18,9 +21,12 @@ connectionDB();
  */
 app.set("name", "rest-api-login");
 app.set("port", process.env.port || 3000);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', '.hbs');
 
 /**
- * MIDDLEWARE
+ * MIDDLEWARE,
+ * 
  */
 app.use(express.json());
 app.use(morgan("dev"));
@@ -31,6 +37,17 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+app.use(express.static(path.join(__dirname, 'views')));
+app.use(flash());
+
+/**
+ * VARIABLE GLOBAL
+ */
+app.use((req, res, next) =>{
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    next();
+});
 
 
 /**

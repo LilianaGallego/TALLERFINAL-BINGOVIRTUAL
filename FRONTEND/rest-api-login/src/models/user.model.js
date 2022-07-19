@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const uuid = require("uuid");
-const bcrypt = require("bcrypt");
 
 /**
  * Esquema de un usuario

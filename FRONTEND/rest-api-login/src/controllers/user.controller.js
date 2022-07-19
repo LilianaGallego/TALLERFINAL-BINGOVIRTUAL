@@ -7,7 +7,7 @@ const User = require("../models/user.model");
  * @since 1.0.0
  */
 exports.getUserSignIn = async (req, res) => {
-  res.render('users/signin')
+  res.render('index.hbs')
 }
 
 /**
@@ -17,7 +17,7 @@ exports.getUserSignIn = async (req, res) => {
  * @since 1.0.0
  */
 exports.getUserSignUp = async (req, res) => {
-  res.render('users/signup')
+  res.render('register')
 }
 
 /**
@@ -41,7 +41,10 @@ exports.postUserSignUp = async (req, res) => {
   if(errors.length > 0) {
     res.render('users/signup',{error, username, password});
   }else{
-    res.send('ok');
+    const newUser = new User({username, password}); 
+    await newUser.save();
+    req.flash('success_msg', 'Usuario creado correctamente');
+    res.redirect('/users/signin')
   }
 }
 /* 

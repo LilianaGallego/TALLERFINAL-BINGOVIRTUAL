@@ -3,23 +3,23 @@ const userRouter = Router();
 const userController =require('../controllers/user.controller')
 
 /**
- * ruta para obtener la sesion de usuario
+ * ruta para obtener la sesion de usuario e ingrese a la app
  */
 userRouter.get("/users/signin", userController.getUserSignIn);
 
 /**
- * ruta para obtener cerrar sesion de usuario
+ * ruta para crear
  */
 userRouter.get("/users/signup", userController.getUserSignUp);
 
 /**
  * ruta para crear la sesion de usuario
  */
-userRouter.post("/users/signin", userController.postUserSignIn);
+//userRouter.post("/users/signin", userController.postUserSignIn);
 /**
  * ruta para crear cerrar la sesion de usuario
  */
-userRouter.post("/users/signup", userController.postSignUp);
+userRouter.post("/users/signup", userController.postUserSignUp);
 
 /* userRouter.get("/user/:id", userController.userGet);
 

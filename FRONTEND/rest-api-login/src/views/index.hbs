@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./css/style.css">
-
-    <script defer src="./javascript/main.js"> </script>
-    <title>CREAR USUARIO:EL GRAN BUDA "Bingo Virtual"</title>
+    <title>EL GRAN BUDA "Bingo Virtual"</title>
 </head>
 
-<body>
+ <body>
+    
     <section class="h-80 ">
         <div class="container py-5 h-80">
             <div class="row d-flex justify-content-center align-items-center h-80">
@@ -24,26 +14,24 @@
                                 <div class="card-body p-md-5 mx-md-4" id="card">
 
                                     <div class="text-center">
+                                        
                                         <Table>
                                             <tr>
                                                 <th>
-                                                    <img src="./images/logo.bingo.png" alt="logo" />
+                                                    <img src="/images/logo.bingo.png" alt="logo" />
                                                 </th>
                                                 <th>
                                                     <h4 class="mt-1 mb-5 pb-1">EL GRAN BUDA</h4>
                                                 </th>
                                             </tr>
                                         </Table>
-                                        
-                                        
                                     </div>
-                                    <h3>FORMULARIO DE REGISTRO DE USUARIOS</h3>
                                     <br>
                                     <form>
 
                                         <div class="form-outline mb-4">
                                             <input type="email" id="username" name="username" class="form-control"
-                                                placeholder="Correo electronico" />
+                                                placeholder="Nombre de usuario" />
                                             <label for=""></label>
                                             <div class="form-outline mb-4">
                                                 <input type="password" id="password" name="password" class="form-control"
@@ -52,17 +40,17 @@
 
                                             <div class="text-center pt-1 mb-5 pb-1">
                                                 <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
-                                                     id="btnRegister">
-                                                     <a class="text-muted" href="./index.html">REGISTRAR</a>
-                                                     </button>
+                                                     id="btnLogin">INGRESAR
+                                                    
+                                                    <a href="./lobby.hbs"></a>
+                                                    </button>
+                                                <a class="text-muted" href="./signup">Registrarse</a>
                                                 
                                             </div>
 
-                                            <p class="medium mb-0">Para iniciar al lobby del bingo, si ya esta
-                                                registrado
-                                                ingrese con su usuario y contraseña sino dar click en crear usuario
+                                            <p class="medium mb-0">Para ingresar al lobby del bingo, si ya esta
+                                                registrado ingrese con su usuario y contraseña sino dar click en Registrarse
                                             </p>
-
                                     </form>
 
                                 </div>
@@ -76,5 +64,3 @@
         </div>
     </section>
 </body>
-
-</html>

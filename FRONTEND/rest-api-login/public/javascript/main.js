@@ -8,8 +8,9 @@ btnLogin.addEventListener("click", (e) => {
     fetch("http://localhost:3000/api/v1/users")
     .then((response) => response.json())
     .then((data) => {
+      console.log(data.username);
         if( data.username == username && data.password == password){
-            fetch("http://localhost:3000/api/v1/authenticate", {
+            fetch("http://localhost:3000/api/v1/users/signin", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username, password }),
@@ -27,7 +28,10 @@ btnLogin.addEventListener("click", (e) => {
   
 btnRegister.addEventListener("click", (e) => {
     e.preventDefault();
-    fetch("/api/v1/createUser", {
+    const username = document.querySelector("#username").value;
+    const password = document.querySelector("#password").value;
+    console.log(username);
+    fetch("http://localhost:3000/api/v1/users/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
