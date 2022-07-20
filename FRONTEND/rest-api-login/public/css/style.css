@@ -1,9 +1,22 @@
-body{
+.content{
     background-image: url('../images/fondo.bingo.png');
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
+    /* background-attachment: fixed; */
+    width: 1350px;
+    height: 1000px;
+    background-size: cover;
+    position: relative;
+    align-items: inherit;
 
+}
+
+.content:before{
+    content: "";
+    width: 1350px;
+    height: 1000px;
+    background-color: aqua;
+    position: absolute;
+    opacity:0.3
 }
 section{
     background-color:none;

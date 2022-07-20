@@ -8,7 +8,7 @@ const connectionDB = require("./db.connection");
 const methodOverride = require('method-override')
 const userRouter = require("./routes/users.routes");
 const flash = require('connect-flash')
-
+const hbs = require('hbs');
 
 
 /**
@@ -38,6 +38,7 @@ app.use(session({
     saveUninitialized: true
 }));
 app.use(express.static(path.join(__dirname, 'views')));
+hbs.registerPartials(__dirname + '/views/partials', function (err) {});
 app.use(flash());
 
 /**

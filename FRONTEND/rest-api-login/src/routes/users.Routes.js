@@ -8,7 +8,7 @@ const userController =require('../controllers/user.controller')
 userRouter.get("/users/signin", userController.getUserSignIn);
 
 /**
- * ruta para crear
+ * ruta para que el usuario se registre
  */
 userRouter.get("/users/signup", userController.getUserSignUp);
 
@@ -19,15 +19,20 @@ userRouter.get("/users/signup", userController.getUserSignUp);
 /**
  * ruta para crear cerrar la sesion de usuario
  */
-userRouter.post("/users/signup", userController.postUserSignUp);
+userRouter.post("/users/signup", userController.createUser);
 
-/* userRouter.get("/user/:id", userController.userGet);
+/**
+ * ruta para ingresar al lobby
+ */
+userRouter.get("/users/signup/lobby", userController.getUserLobby);
+
+//userRouter.get("/user/:id", userController.userGet);
 
 userRouter.get("/users", userController.usersGet);
 
-userRouter.post("/createUser", userController.createUser);
+ //userRouter.post("/createUser", userController.createUser);
 
-userRouter.post("/authenticate", userController.userAuthenticate);
+/*userRouter.post("/authenticate", userController.userAuthenticate);
  
 userRouter.put("/user/:id", userController.userPut);
 

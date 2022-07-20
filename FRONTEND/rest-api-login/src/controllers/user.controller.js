@@ -1,6 +1,25 @@
 const User = require("../models/user.model");
 
 /**
+ * Metodo asincrono para obtener una lista de usuarios
+ *
+ * @param req solicitud enviada
+ * @param res respuesta obtenida
+ *
+ * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+ * @since 1.0.0
+ */
+ exports.usersGet = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+
+/**
  * Para obtener sesion de usuario
  *
  * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
@@ -21,32 +40,59 @@ exports.getUserSignUp = async (req, res) => {
 }
 
 /**
- * Para crear la sesion de usuario con su usuario y contraseña
+ * Para ingresar al lobby
  *
  * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
  * @since 1.0.0
  */
-exports.postUserSignUp = async (req, res) => {
+ exports.getUserLobby = async (req, res) => {
+  res.render('lobby')
+}
+
+/**
+ * Para crear la sesion de usuario con su usuario y contraseña
+ *
+ * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+ * @since 1.0.0
+ * 
+ */
+exports.createUser = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    if (User) {
+      const newUser = new User({ username, password });
+      await newUser.save();
+      res.status(200).json({ msj: "USUARIO REGISTRADO", id: newUser._id });
+      
+    } else {
+      res.json({ isOk: false, msj: "Los datos son requeridos" });
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+/* exports.postUserSignUp = async (req, res) => {
   const {username, password} = req.body;
+  console.log(username.length)
   const errors = [];
+  console.log(req.body);
   if(username.length <= 0){
-    error.push({text: 'Por favor ingrese su correo'})
+    errors.push({text: 'Por favor ingrese su correo'})
   }
   if(password.length <= 0){
-    error.push({text: 'Por favor ingrese su contraseña'})
+    errors.push({text: 'Por favor ingrese su contraseña'})
   }
   if(password.length < 3 ){
-    error.push({text: 'la contraseña debe tener mas de 3 caracteres'});
+    errors.push({text: 'la contraseña debe tener mas de 3 caracteres'});
   }
   if(errors.length > 0) {
-    res.render('users/signup',{error, username, password});
+    res.render('users/signup',{errors, username, password});
   }else{
-    const newUser = new User({username, password}); 
-    await newUser.save();
-    req.flash('success_msg', 'Usuario creado correctamente');
-    res.redirect('/users/signin')
+    res.send('ok')
+    /* req.flash('success_msg', 'Usuario creado correctamente');
+    res.redirect('index.hbs') 
   }
-}
+} */
 /* 
 exports.userGet = async (req, res) => {
   try {
