@@ -21,7 +21,7 @@ btnLogin.addEventListener("click", (e) => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password }),
           });
-          location.href="http://localhost:3000/api/v1/users/signup/lobby"
+          location.href="http://localhost:8080/api/v1/users/signup/lobby"
         } else {
           console.log("Usuario no encontrado");
         }
