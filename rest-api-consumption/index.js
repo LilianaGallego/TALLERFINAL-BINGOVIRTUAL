@@ -32,6 +32,7 @@ hbs.registerPartials(__dirname + '/views/partials', function (err) {});
  * LLAMADO DE RUTAS
  */
 app.use(express.static("public"));
+app.use("/api/v1/users/signup", userRouter);
 
 app.post('/', (req, res) => { 
     console.log("Success"); }); 
