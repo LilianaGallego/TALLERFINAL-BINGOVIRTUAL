@@ -7,6 +7,7 @@ const session = require('express-session');
 const connectionDB = require("./db.connection");
 const methodOverride = require('method-override')
 const userRouter = require("./routes/users.routes");
+const userLoginRouter = require("./routes/userslogin.Routes");
 const flash = require('connect-flash')
 const hbs = require('hbs');
 
@@ -56,6 +57,7 @@ app.use((req, res, next) =>{
  */
 app.use(express.static("public"));
 app.use("/api/v1", userRouter);
+app.use("/api/v1", userLoginRouter);
 
 
 module.exports = app;

@@ -1,7 +1,7 @@
 const User = require("../models/user.model");
 
 /**
- * Metodo asincrono para obtener una lista de usuarios
+ * Metodo asincrono para obtener una lista de usuarios creados
  *
  * @param req solicitud enviada
  * @param res respuesta obtenida
@@ -17,6 +17,7 @@ const User = require("../models/user.model");
     res.status(500).json(error);
   }
 };
+
 
 
 /**
@@ -61,6 +62,8 @@ exports.createUser = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+
 /* exports.postUserSignUp = async (req, res) => {
   const {username, password} = req.body;
   console.log(username.length)

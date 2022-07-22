@@ -15,13 +15,15 @@ btnLogin.addEventListener("click", (e) => {
       for (let i = 0; i < data.length; i++) {
         const username = data[i].username;
         const password = data[i].password;
+        const _id = data[i]._id;
         if (username == inputUsername.value && password == inputPassword.value) {
-          fetch("http://localhost:3000/api/v1/users/signin", {
+          /* fetch("http://localhost:3000/api/v1/users/Login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, password }),
-          });
-          location.href="http://localhost:8080/api/v1/users/signup/lobby"
+            body: JSON.stringify({_id, username, password }),
+          }); */
+
+          location.href="http://localhost:8080/api/v1/"
         } else {
           console.log("Usuario no encontrado");
         }

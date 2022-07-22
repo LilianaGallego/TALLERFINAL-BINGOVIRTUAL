@@ -1,7 +1,7 @@
 const btnStart = document.getElementById('btnStart')
 
 let segundos = 3;
-conteo = () => {
+counting = () => {
   document.getElementById('number').innerHTML ="El juego inicia en: " + segundos + " segundos";
   if (segundos == 0){
     document.getElementById('mss').innerHTML ="Dar click en JUGAR";
@@ -12,14 +12,23 @@ conteo = () => {
   }else{
     segundos--;
     btnStart.disabled = true;
-    setTimeout("conteo()",1000)
+    setTimeout("counting()",1000)
   }
   
 }
-conteo();
+counting();
 
 startGame = () => {
   self.location.href = './startGame.html';
 }
 
+const userList = () =>{
+  fetch("http://localhost:3000/api/v1/usersLogin")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.data)
+    })
+    .catch((error) => console.log(error));
+
+}
 

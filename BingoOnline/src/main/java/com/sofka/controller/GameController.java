@@ -1,6 +1,7 @@
 package com.sofka.controller;
 
-
+import com.sofka.domain.UserDomain;
+import com.sofka.domain.BingoDomain;
 import com.sofka.domain.BoardDomain;
 import com.sofka.service.GameService;
 import com.sofka.utility.Response;
@@ -25,7 +26,7 @@ import java.sql.SQLException;
  */
 @Slf4j
 @RestController
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = "http://localhost:8080/")
 public class GameController {
 
 	@Autowired
@@ -103,12 +104,12 @@ public class GameController {
 	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
 	 * @since 1.0.0
 	 */
-	@CrossOrigin(origins = "http://localhost:3000/")
+	@CrossOrigin(origins = "http://localhost:8080/")
 	@GetMapping(path="/api/v1/users")
 	public ResponseEntity<Response> getListUsers(){
 		response.restart();
 		try {
-			response.data = directoryService.getList();
+			response.data = gameService.getList();
 			httpStatus = HttpStatus.OK;
 		} catch (Exception exception) {
 			getErrorMessageInternal(exception);
@@ -125,7 +126,7 @@ public class GameController {
 	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
 	 * @since 1.0.0
 	 */
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping(path = "/api/v1/index/orderby/{orderBy}/{order}")
 	public ResponseEntity<Response> indexOrderBy(
 			@PathVariable(value="orderBy") String orderBy,
@@ -133,7 +134,7 @@ public class GameController {
 	) {
 		response.restart();
 		try {
-			response.data = directoryService.getList(orderBy, order);
+			response.data = gameService.getList(orderBy, order);
 			httpStatus = HttpStatus.OK;
 		} catch (Exception exception) {
 			getErrorMessageInternal(exception);
@@ -150,13 +151,13 @@ public class GameController {
 	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
 	 * @since 1.0.0
 	 */
-	@CrossOrigin(origins = "http://localhost:3000/")
+	@CrossOrigin(origins = "http://localhost:8080/")
 	@PostMapping(path = "/api/v1/user")
-	public ResponseEntity<Response> createUser(@RequestBody userDomain user) {
+	public ResponseEntity<Response> createUser(@RequestBody UserDomain user) {
 		response.restart();
 		try {
 			log.info("Usuario a crear: {}", user);
-			response.data = directoryService.createUser(user);
+			response.data = gameService.createUser(user);
 			httpStatus = HttpStatus.CREATED;
 		} catch (DataAccessException exception) {
 			getErrorMessageForResponse(exception);
@@ -175,13 +176,13 @@ public class GameController {
 	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
 	 * @since 1.0.0
 	 */
-	@CrossOrigin(origins = "http://localhost:3000/")
+	@CrossOrigin(origins = "http://localhost:8080/")
 	@PostMapping(path = "/api/v1/board")
-	public ResponseEntity<Response> createContact(@RequestBody BoardDomain board) {
+	public ResponseEntity<Response> createBoard(@RequestBody BoardDomain board) {
 		response.restart();
 		try {
 			log.info("Contacto a crear: {}", board);
-			response.data = directoryService.createBoard(board);
+			response.data = gameService.createBoard(board);
 			httpStatus = HttpStatus.CREATED;
 		} catch (DataAccessException exception) {
 			getErrorMessageForResponse(exception);
@@ -200,13 +201,13 @@ public class GameController {
 	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
 	 * @since 1.0.0
 	 */
-	@CrossOrigin(origins = "http://localhost:3000/")
+	@CrossOrigin(origins = "http://localhost:8080/")
 	@PostMapping(path = "/api/v1/bingo")
-	public ResponseEntity<Response> createContact(@RequestBody BingoDomain bingo) {
+	public ResponseEntity<Response> createBingo(@RequestBody BingoDomain bingo) {
 		response.restart();
 		try {
 			log.info("Contacto a crear: {}", bingo);
-			response.data = directoryService.createBingo(bingo);
+			response.data = gameService.createBingo(bingo);
 			httpStatus = HttpStatus.CREATED;
 		} catch (DataAccessException exception) {
 			getErrorMessageForResponse(exception);

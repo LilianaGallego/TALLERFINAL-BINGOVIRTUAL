@@ -1,10 +1,10 @@
 {
-  "name": "rest-api-consumption",
+  "name": "rest-api-node",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "npx nodemon index.js",
-    "debug": "SET DEBUG=rest-api-consumption:*& set SCOPE=development& nodemon  --inspect index.js"
+    "debug": "SET DEBUG=rest-api-node:*& set SCOPE=development& nodemon  --inspect index.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

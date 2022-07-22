@@ -1,0 +1,37 @@
+body{
+    
+    background-image: url('../images/fondo.bingo.png');
+    background-repeat: no-repeat;
+    width: 1350px;
+    height: 1000px;
+    background-size: cover;
+    position: relative;
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+}
+
+
+#btnStart{
+    display: none;
+    text-decoration: none;
+    width: 50%;
+    font-size: 50px;
+    margin-left: 100px;
+
+}
+.container{
+    font-family: "Lobster", cursive;
+    text-align: center;
+    padding: 100px;
+   
+    align-items: inherit;
+}
+
+#start{
+    margin-left: 500px;
+    padding-top: 100px;
+    display: flex;
+}
