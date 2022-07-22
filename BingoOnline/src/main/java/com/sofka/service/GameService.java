@@ -6,7 +6,7 @@ import com.sofka.domain.UserDomain;
 import com.sofka.repository.BingoRepository;
 import com.sofka.repository.BoardRepository;
 import com.sofka.repository.UserRepository;
-import com.sofka.service.interfaces.IGameServices;
+import com.sofka.service.interfaces.IGameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -15,14 +15,14 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Clase tipo Servicio para el manejo del juego del bingo
+ * Clase tipo servicio para el manejo del juego del bingo
  *
  * @version 1.0.0 2022-07-21
  * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
  * @since 1.0.0
  */
 @Service
-public class GameServices implements IGameServices {
+public class GameService implements IGameService {
 
 	/**
 	 * Repositorio del Usuario
@@ -53,7 +53,7 @@ public class GameServices implements IGameServices {
 	@Override
 	@Transactional(readOnly = true)
 	public List<UserDomain> getList() {
-		return null;
+		return userRepository.findAll();
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class GameServices implements IGameServices {
 	 */
 	@Override
 	public List<UserDomain> getList(String field, Sort.Direction order) {
-		return null;
+		return userRepository.findAll(Sort.by(order, field));
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class GameServices implements IGameServices {
 	 */
 	@Override
 	public UserDomain createUser(UserDomain user) {
-		return null;
+		return userRepository.save(user);
 	}
 
 	/**
@@ -97,7 +97,7 @@ public class GameServices implements IGameServices {
 	 */
 	@Override
 	public BoardDomain createBoard(BoardDomain board) {
-		return null;
+		return boardRepository.save(board);
 	}
 
 	/**
@@ -111,21 +111,66 @@ public class GameServices implements IGameServices {
 	 */
 	@Override
 	public BingoDomain createBingo(BingoDomain bingo) {
-		return null;
+		return bingoRepository.save(bingo);
 	}
 
+	/**
+	 * Borra un usuario del sistema basado en su identificador
+	 *
+	 * @param id identificador del usuario a borrar
+	 * @return Objeto del usuario creado
+	 *
+	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	 * @since 1.0.0
+	 */
 	@Override
 	public UserDomain deleteUser(Integer id) {
-		return null;
+		var user = userRepository.findById(id);
+		if (user.isPresent()) {
+			userRepository.delete(user.get());
+			return user.get();
+		} else {
+			return null;
+		}
 	}
 
+	/**
+	 * Borra un tablero del sistema basado en su identificador
+	 *
+	 * @param id identificador del tablero a borrar
+	 * @return Objeto del tablero creado
+	 *
+	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	 * @since 1.0.0
+	 */
 	@Override
 	public BoardDomain deleteBoard(Integer id) {
-		return null;
+		var board = boardRepository.findById(id);
+		if (board.isPresent()) {
+			boardRepository.delete(board.get());
+			return board.get();
+		} else {
+			return null;
+		}
 	}
 
+	/**
+	 * Borra un contacto del sistema basado en su identificador
+	 *
+	 * @param id identificador del bingo a borrar
+	 * @return Objeto del bingo creado
+	 *
+	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	 * @since 1.0.0
+	 */
 	@Override
 	public BingoDomain deleteBingo(Integer id) {
-		return null;
+		var bingo = bingoRepository.findById(id);
+		if (bingo.isPresent()) {
+			bingoRepository.delete(bingo.get());
+			return bingo.get();
+		} else {
+			return null;
+		}
 	}
 }

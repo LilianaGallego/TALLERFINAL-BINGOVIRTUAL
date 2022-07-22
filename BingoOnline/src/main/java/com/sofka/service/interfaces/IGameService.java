@@ -13,7 +13,7 @@ import java.util.List;
  * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
  * @since 1.0.0
  */
-public interface IGameServices {
+public interface IGameService {
 
 	/**
 	 * Devuelve una lista de Usuarios con todos los usuarios que estan jugando
