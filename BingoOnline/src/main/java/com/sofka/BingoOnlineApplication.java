@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BingoVirtualApplication {
+public class BingoOnlineApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BingoVirtualApplication.class, args);
+		SpringApplication.run(BingoOnlineApplication.class, args);
 	}
 
 }
