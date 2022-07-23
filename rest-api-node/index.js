@@ -4,10 +4,12 @@ const app = express();
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const path = require('path');
+const cors = require('cors'); 
+
 /**
  * CONFIGURACIONES
  */
-app.set("name", "rest-api-contacts");
+app.set("name", "rest-api-node");
 app.set("port", process.env.port || 8080);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -16,20 +18,21 @@ app.set('view engine', 'hbs');
  */
 app.use(express.json());
 app.use(morgan("dev"));
-app.options('/', (req, res)  => {
-    res.setHeader("Access-Control-Allow-Origin", "*"); 
-    res.setHeader('Access-Control-Allow-Methods', '*'); 
-    res.setHeader("Access-Control-Allow-Headers", "*"); 
-    res.end(); }); 
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
+app.use(cors(corsOptions))
 
 /**
  * LLAMADO DE RUTAS
  */
 app.use(express.static("public"));
 app.use('/api/v1', indexRouter);
-app.use('/users', usersRouter);
-app.post('/', (req, res) => { 
-    console.log("Success"); }); 
+app.use('/api/v1', usersRouter);
+
 
 /**
  * Configuracion del puerto en el que se ejecuta la api

@@ -13,6 +13,7 @@ const UserLogin = require("../models/userlogin.Model");
  exports.usersLoginGet = async (req, res) => {
     try {
       const usersLogin = await UserLogin.find();
+      console.log(usersLogin);
       res.json(usersLogin);
     } catch (error) {
       res.status(500).json(error);

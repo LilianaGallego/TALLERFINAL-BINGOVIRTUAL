@@ -10,6 +10,7 @@ const userRouter = require("./routes/users.routes");
 const userLoginRouter = require("./routes/userslogin.Routes");
 const flash = require('connect-flash')
 const hbs = require('hbs');
+const cors = require('cors'); 
 
 
 /**
@@ -24,6 +25,13 @@ app.set("name", "rest-api-login");
 app.set("port", process.env.port || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', '.hbs');
+const corsOptions ={
+    origin:'*', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200,
+ }
+ 
+ app.use(cors(corsOptions))
 
 /**
  * MIDDLEWARE,

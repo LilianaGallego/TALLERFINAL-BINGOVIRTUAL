@@ -5,7 +5,7 @@ const userLoginController =require('../controllers/userlogin.controller')
 /**
  * ruta para obtener la lista de usuarios que han iniciado sesion
  */
- userLoginRouter.get("/usersLogin", userLoginController.usersLoginGet);
+ userLoginRouter.get("/usersLobby", userLoginController.usersLoginGet);
 
  /**
   * ruta para registrar los usuarios que inician sesion

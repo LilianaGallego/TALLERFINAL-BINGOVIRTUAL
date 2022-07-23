@@ -13,6 +13,20 @@ h1{
     text-align: center;
 }
 
+table{
+    width: 500px;
+	height: 300px;
+    color: blue;
+}
+
+h3{
+    text-align: center;
+}
+
+h1,h2{
+    color: rgb(110, 28, 110)
+}
+
 
 #btnStart{
     display: none;
@@ -35,3 +49,10 @@ h1{
     padding-top: 100px;
     display: flex;
 }
+
+#tbl-user{
+    width:50%;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: rgb(18, 18, 65);
+}
+

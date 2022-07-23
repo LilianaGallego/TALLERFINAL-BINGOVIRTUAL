@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-//const User = require("../models/user.model");
 
 /**
  * Esquema de un usuario en login
