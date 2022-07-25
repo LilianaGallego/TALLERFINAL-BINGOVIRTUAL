@@ -116,6 +116,28 @@ public class GameController {
 		}
 		return new ResponseEntity(response, httpStatus);
 	}
+
+	/**
+	 * Devuelve todos los numeros del bingo
+	 *
+	 * @return Objeto lista de bingo Response en formato JSON
+	 *
+	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	 * @since 1.0.0
+	 */
+	@CrossOrigin(origins = "http://localhost:8080/")
+	@GetMapping(path="/api/v1/listBingo")
+	public ResponseEntity<Response> getListBingo(){
+		response.restart();
+		try {
+			response.data = gameService.getListBingo();
+			httpStatus = HttpStatus.OK;
+		} catch (Exception exception) {
+			getErrorMessageInternal(exception);
+		}
+		return new ResponseEntity(response, httpStatus);
+	}
+
 	/**
 	 * Devuelve todos los usuarios ordenados por su id  de forma ascendente o descendente
 	 *
@@ -181,7 +203,7 @@ public class GameController {
 	public ResponseEntity<Response> createBoard(@RequestBody BoardDomain board) {
 		response.restart();
 		try {
-			log.info("Contacto a crear: {}", board);
+			log.info("tablero a crear: {}", board);
 			response.data = gameService.createBoard(board);
 			httpStatus = HttpStatus.CREATED;
 		} catch (DataAccessException exception) {
@@ -206,7 +228,7 @@ public class GameController {
 	public ResponseEntity<Response> createBingo(@RequestBody BingoDomain bingo) {
 		response.restart();
 		try {
-			log.info("Contacto a crear: {}", bingo);
+			log.info("Bingo a crear: {}", bingo);
 			response.data = gameService.createBingo(bingo);
 			httpStatus = HttpStatus.CREATED;
 		} catch (DataAccessException exception) {

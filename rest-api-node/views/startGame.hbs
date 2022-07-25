@@ -1,23 +1,43 @@
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BINGO VITUAL</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script defer src="/javascripts/bingo.js"></script>
-    <link rel="stylesheet" href="/css/style.css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BINGO VITUAL</title>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
+  {{! <script defer src="/javascripts/bingo.js"></script> }}
+  <script defer src="/javascripts/startGame.js"></script>
+
+  <link rel="stylesheet" href="/css/startGame.css" />
 </head>
 <body>
-    <br><br><br>
-    <b>
-        <h1>¡BIENVENIDO AL BINGO VIRTUAL!</h1>
-    </b>
-    <table class="table table-bordered table-hover text-center">
-        <tbody id="tbody"></tbody>
-    </table>
+  <br /><br /><br />
+  <b>
+    <h2>¡BIENVENIDO AL BINGO VIRTUAL!</h2>
+  </b>
+    
+  <table id="board">
+    <tr>
+      <th>B</th>
+      <th>I</th>
+      <th>N</th>
+      <th>G</th>
+      <th>O</th>
+    </tr>
+  </table>
+
+  <footer>
+
+  </footer>
+
+  <div id="results">
+    <h3 id="winner"></h3>
+
+  </div>
+  <div id="overlay"></div>
+
 </body>

@@ -26,17 +26,40 @@ public interface IGameService {
 	public List<UserDomain> getList();
 
 	/**
+	 * Devuelve una lista de los numeros del bingo
+	 *
+	 * @return
+	 *
+	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	 * @since 1.0.0
+	 */
+	public List<BingoDomain>  getListBingo();
+
+	/**
 	 * Devuelve una lista de usuarios con todos usuarios del sistema ordenados por el campo indicado
 	 * (Id) ya sea ascendente o descendente
 	 *
 	 * @param field campo por el cual ordenar
 	 * @param order método de ordenado ASC o DESC
-	 * @return Lista de contactos
+	 * @return Lista de usuarios
 	 *
 	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
 	 * @since 1.0.0
 	 */
 	public List<UserDomain> getList(String field, Sort.Direction order);
+
+	/**
+	 * Devuelve los numeros del bingo ordenados por el campo indicado
+	 * ya sea ascendente o descendente
+	 *
+	 * @param field campo por el cual ordenar
+	 * @param order método de ordenado ASC o DESC
+	 * @return Lista de numeros
+	 *
+	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	 * @since 1.0.0
+	 */
+	public List<BingoDomain> getListBingo(String field, Sort.Direction order);
 
 	/**
 	 * Crea un usuario en el sistema

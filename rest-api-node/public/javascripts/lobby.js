@@ -75,7 +75,7 @@ const userList = async () => {
 /**
  * funcion para agregar el id del usuario que esta en el
  * juego
- *
+ * @param id identificador del usuario a agregar
  * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
  * @since 1.0.0
  */
@@ -87,6 +87,7 @@ const addUserMySql = (id) => {
   });
 }
 
+//Llamado de funciones
 counting();
 userList();
 

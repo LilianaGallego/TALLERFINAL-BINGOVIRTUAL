@@ -1,5 +1,10 @@
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
 body{
-    
+  margin: 0;  
   background-image: url('../images/fondo.bingo.png');
   background-repeat: no-repeat;
   width: 1350px;
@@ -8,10 +13,58 @@ body{
   position: relative;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1{
-  font-size: 80px;
+  font-size: 60px;
   text-align: center;
   color: rgb(196, 28, 70);
   font-family: "lucida", cursive;
   margin-top: 30px;
 }
+
+#div-tbl-bingo{
+  width: 200px;
+  height: 300px;
+  color: rgb(29, 29, 124);
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+#tbl-bingo{
+  width:20%;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: rgb(39, 39, 124);
+  border:none
+}
+
+thead{
+  font: 28px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: rgb(63, 32, 94);
+  background-color:darkturquoise;
+}
+
+#tbl-board, #celda {
+  border: 1px solid blue;
+  font-size: medium;
+  font: 28px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 30px;
+  padding: 10px;
+  text-align: center;
+  color: rgb(90, 38, 138);
+ 
+}
+
+#head-board{
+  font: 28px "Lucida Grande", Helvetica, Arial, sans-serif;
+  border: 1px solid blue;
+  font-size: medium;
+  margin-right:auto;
+  text-align: center;
+  color: rgb(186, 173, 199);
+  background-color:purple;
+}
+
+

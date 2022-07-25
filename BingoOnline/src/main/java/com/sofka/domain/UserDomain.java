@@ -36,7 +36,6 @@ public class UserDomain{
 	 * Identificador de la tupla
 	 */
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "use_id", nullable = false)
 	private Integer id;
 
