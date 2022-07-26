@@ -5,7 +5,8 @@ USE bingovirtual;
 -- Tabla Usuario
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS user(
-  use_id INT UNSIGNED NOT NULL AUTO_INCREMENT  PRIMARY KEY
+  use_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  use_id_login VARCHAR(50) NOT NULL  PRIMARY KEY
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -15,8 +16,7 @@ CREATE TABLE IF NOT EXISTS user(
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS board(
   boa_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-  boa_user_id INT UNSIGNED NOT NULL,
-  boa_number INTEGER UNSIGNED NOT NULL,
+  boa_user_id INTEGER UNSIGNED NOT NULL,
   boa_listb INTEGER UNSIGNED NOT NULL,
   boa_listi INTEGER UNSIGNED NOT NULL,
   boa_listn INTEGER UNSIGNED NOT NULL,
@@ -25,14 +25,17 @@ CREATE TABLE IF NOT EXISTS board(
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE INDEX board_boa_number_Idx ON board(boa_number) USING BTREE;
 CREATE INDEX board_boa_listb_Idx ON board(boa_listb) USING BTREE;
 CREATE INDEX board_boa_listi_Idx ON board(boa_listi) USING BTREE;
 CREATE INDEX board_boa_listn_Idx ON board(boa_listn) USING BTREE;
 CREATE INDEX board_boa_listg_Idx ON board(boa_listg) USING BTREE;
 CREATE INDEX board_boa_listo_Idx ON board(boa_listo) USING BTREE;
-CREATE UNIQUE INDEX board_boa_user_id_boa_boa_Idx ON board (boa_user_id, boa_number) USING BTREE;
+CREATE UNIQUE INDEX board_boa_user_id_boa_boa_Idx ON board (boa_user_id,boa_id) USING BTREE;
 
+
+-- -----------------------------------------------------
+-- Tabla bingo
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS bingo(
   bin_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
   bin_listb INTEGER UNSIGNED NOT NULL,
