@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-success" style="width: 1350px" > 
+        <ul class="navbar-nav mr-auto"> 
+          <li class="nav item active">
+            <img style="width: 10%; height:10px" src="/images/logo.bingo.png" alt="">
+            <h1 style="color: white;">BINGO VIRTUAL EL GRAN BUDA</h1>
+          </li> 
+          
+          <li class="item button login"><a class="btn btn-primary" href="http://localhost:3000/api/v1/users/signin">INGRESAR</a></li> 
+          <li class="item button secondary" id="btn-out"><a class="btn btn-danger" href="#">SALIR</a></li>
+          
+        
+        </ul> 
+      </nav>
+
+    </header>
+    
+      {{>messages}}
+      {{>errors}}
+      {{{body}}}
+
+   
+    
+  </body>
+</html>
