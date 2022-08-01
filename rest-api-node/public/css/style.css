@@ -8,7 +8,7 @@ body{
   background-image: url('../images/fondo.bingo.png');
   background-repeat: no-repeat;
   width: 1350px;
-  height: 1000px;
+  height: 1500px;
   background-size: cover;
   position: relative;
 }
@@ -66,5 +66,26 @@ thead{
   color: rgb(186, 173, 199);
   background-color:purple;
 }
+
+
+ul { 
+  list-style-type: none; 
+} 
+
+a {
+  color: rgb(32, 56, 26); text-decoration: none; 
+} 
+
+a:hover {
+  text-decoration: underline; 
+}
+
+.navbar-nav  li {
+  font-size: 16px;  white-space: nowrap; 
+} 
+
+
+
+
 
 

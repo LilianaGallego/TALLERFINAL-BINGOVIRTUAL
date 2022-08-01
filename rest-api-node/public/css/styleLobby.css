@@ -13,6 +13,15 @@ h1{
     text-align: center;
 }
 
+
+.button.login {
+    display: none;
+}
+
+.button.secondary {
+    border-bottom: 1px #444 solid; 
+}
+
 table{
     width: 500px;
 	height: 300px;
@@ -27,26 +36,26 @@ h1,h2{
     color: rgb(110, 28, 110)
 }
 
-
 #btnStart{
     display: none;
     text-decoration: none;
-    width: 50%;
-    font-size: 50px;
-    margin-left: 100px;
+    width: 30%;
+    color: white;
+    font-size: 40px;
+    margin-left: 30px;
 
 }
 .container{
     font-family: "Lobster", cursive;
     text-align: center;
-    padding: 100px;
+    /* padding: 100px; */
    
     align-items: inherit;
 }
 
 #start{
-    margin-left: 500px;
-    padding-top: 100px;
+    margin-left: 300px;
+    padding-top: 30px;
     display: flex;
 }
 

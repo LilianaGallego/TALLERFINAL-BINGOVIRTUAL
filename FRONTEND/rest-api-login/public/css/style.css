@@ -75,3 +75,29 @@ h3{
     text-decoration: none;
     color:white
 }
+
+
+ul { 
+    list-style-type: none; 
+} 
+
+a {
+color: rgb(32, 56, 26); text-decoration: none; 
+} 
+
+a:hover {
+text-decoration: underline; 
+}
+
+.navbar-nav  li {
+font-size: 16px;  white-space: nowrap; 
+} 
+
+.button.login {
+    border-bottom: 1px #444 solid; 
+}
+
+.button.secondary {    
+    display: none;
+
+}

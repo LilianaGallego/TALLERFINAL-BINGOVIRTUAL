@@ -9,16 +9,17 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous"
   />
-  {{! <script defer src="/javascripts/bingo.js"></script> }}
+  
   <script defer src="/javascripts/startGame.js"></script>
-
+  <script defer src="/javascripts/list.js"></script>
   <link rel="stylesheet" href="/css/startGame.css" />
 </head>
 <body>
-  <br /><br /><br />
+  
   <b>
-    <h2>¡BIENVENIDO AL BINGO VIRTUAL!</h2>
+    <h2 style="margin-top: 80px;">¡BIENVENIDO!</h2>
   </b>
+  <br>
     
   <table id="board">
     <tr>
@@ -33,11 +34,34 @@
   <footer>
 
   </footer>
-
-  <div id="results">
+  <div  id="results">
+    
     <h3 id="winner"></h3>
-
+    <div id="end"></div>
+  </div>      
+  <div class="col-2- mt-3 mx-auto justify-content-center" id="tbl-user">
+    <b><h4>USUARIOS JUGANDO</h3></b>
+    <table class="table table-sm table-info table-hover text-center" id="usersList">
+        <thead id="titletbl">
+            <tr  >
+                <th id="titletbl">Id</th>
+                <th id="titletbl">IdLogin</th>
+            </tr>
+        </thead>
+        <tbody id="tbusers"></tbody>
+    </table>
+      
   </div>
-  <div id="overlay"></div>
+  <div class="col-2- mt-3 mx-auto justify-content-center" id="tbl-user">
+    <table class="table table-sm table-info table-hover text-center">
+        <tbody id="tbingo"></tbody>
+    </table>
+      
+  </div>
 
+  <div id="overlay"></div>
+  
+  <footer>
+
+  </footer>
 </body>

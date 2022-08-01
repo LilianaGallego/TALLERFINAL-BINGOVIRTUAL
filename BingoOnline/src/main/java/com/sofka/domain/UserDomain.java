@@ -3,16 +3,7 @@ package com.sofka.domain;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
-import javax.persistence.Table;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GenerationType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Column;
-import javax.persistence.OneToOne;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-
+import javax.persistence.*;
 
 
 /**
@@ -36,14 +27,17 @@ public class UserDomain{
 	 * Identificador de la tupla
 	 */
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "use_id", nullable = false)
 	private Integer id;
 
+	@OneToOne(mappedBy="user")
+	private BoardDomain board;
+
 	/**
-	 * Punto de enlace con la entidad tablero (un usuario puede tener solo  un tablero)
+	 * Número del tablero
 	 */
-	@OneToOne(fetch = FetchType.LAZY, targetEntity = BoardDomain.class, optional = false)
-	@JoinColumn(name = "boa_user_id", nullable = false)
-	@JsonBackReference
-	private BoardDomain boardDomain;
+	@Column(name = "use_id_login", nullable = false, length = 50)
+	private String idLogin;
+
 }

@@ -1,5 +1,6 @@
 package com.sofka.controller;
 
+import com.sofka.domain.NumberBDomain;
 import com.sofka.domain.UserDomain;
 import com.sofka.domain.BingoDomain;
 import com.sofka.domain.BoardDomain;
@@ -45,6 +46,7 @@ public class GameController {
 	 */
 	@GetMapping(path = "/")
 	public ResponseEntity<Response> homeIndex1(HttpServletResponse httpResponse) {
+
 		return getResponseHome(httpResponse);
 	}
 
@@ -59,6 +61,7 @@ public class GameController {
 	 */
 	@GetMapping(path = "/api/")
 	public ResponseEntity<Response> homeIndex2(HttpServletResponse httpResponse) {
+
 		return getResponseHome(httpResponse);
 	}
 
@@ -73,6 +76,7 @@ public class GameController {
 	 */
 	@GetMapping(path = "/api/v1/")
 	public ResponseEntity<Response> homeIndex3(HttpServletResponse httpResponse) {
+
 		return getResponseHome(httpResponse);
 	}
 
@@ -118,6 +122,28 @@ public class GameController {
 	}
 
 	/**
+	 * Devuelve todos los tableros
+	 *
+	 * @return Objeto lista de tableros
+	 * Response en formato JSON
+	 *
+	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	 * @since 1.0.0
+	 */
+	@CrossOrigin(origins = "http://localhost:8080/")
+	@GetMapping(path="/api/v1/boards")
+	public ResponseEntity<Response> listBoards(){
+		response.restart();
+		try {
+			response.data = gameService.listBoards();
+			httpStatus = HttpStatus.OK;
+		} catch (Exception exception) {
+			getErrorMessageInternal(exception);
+		}
+		return new ResponseEntity(response, httpStatus);
+	}
+
+	/**
 	 * Devuelve todos los numeros del bingo
 	 *
 	 * @return Objeto lista de bingo Response en formato JSON
@@ -131,6 +157,28 @@ public class GameController {
 		response.restart();
 		try {
 			response.data = gameService.getListBingo();
+			httpStatus = HttpStatus.OK;
+		} catch (Exception exception) {
+			getErrorMessageInternal(exception);
+		}
+		return new ResponseEntity(response, httpStatus);
+	}
+
+	/**
+	 * Devuelve todos los numeros del tablero
+	 *
+	 * @return Objeto lista de numeros del tablero
+	 * Response en formato JSON
+	 *
+	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	 * @since 1.0.0
+	 */
+	@CrossOrigin(origins = "http://localhost:8080/")
+	@GetMapping(path="/api/v1/numbersb")
+	public ResponseEntity<Response> listNumbersB(){
+		response.restart();
+		try {
+			response.data = gameService.listNumbersB();
 			httpStatus = HttpStatus.OK;
 		} catch (Exception exception) {
 			getErrorMessageInternal(exception);
@@ -238,6 +286,62 @@ public class GameController {
 		}
 		return new ResponseEntity(response, httpStatus);
 	}
+
+	/**
+	 * Crea un nuevo numero del tablero
+	 *
+	 * @param numberB Objeto NumberB a crear
+	 * @return Objeto Response en formato JSON
+	 *
+	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	 * @since 1.0.0
+	 */
+	@CrossOrigin(origins = "http://localhost:8080/")
+	@PostMapping(path = "/api/v1/numberB")
+	public ResponseEntity<Response> createNumberB(@RequestBody NumberBDomain numberB) {
+		response.restart();
+		try {
+			log.info("Numbero a crear: {}", numberB);
+			response.data = gameService.createNumberB(numberB);
+			httpStatus = HttpStatus.CREATED;
+		} catch (DataAccessException exception) {
+			getErrorMessageForResponse(exception);
+		} catch (Exception exception) {
+			getErrorMessageInternal(exception);
+		}
+		return new ResponseEntity(response, httpStatus);
+	}
+
+	/**
+	 * Borra un usuario del sistema
+	 *
+	 * @param id Identificador del usuario a borrar
+	 * @return Objeto Response en formato JSON
+	 *
+	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	 * @since 1.0.0
+	 */
+	@CrossOrigin(origins = "http://localhost:8080/")
+	@DeleteMapping(path = "/api/v1/user/{id}")
+	public ResponseEntity<Response> deleteUser(@PathVariable(value="id") Integer id) {
+		response.restart();
+		try {
+			response.data = gameService.deleteUser(id);
+			if (response.data == null) {
+				response.message = "El usuario no existe";
+				httpStatus = HttpStatus.NOT_FOUND;
+			} else {
+				response.message = "El usuario fue removido exitosamente";
+				httpStatus = HttpStatus.OK;
+			}
+		} catch (DataAccessException exception) {
+			getErrorMessageForResponse(exception);
+		} catch (Exception exception) {
+			getErrorMessageInternal(exception);
+		}
+		return new ResponseEntity(response, httpStatus);
+	}
+
 
 	/**
 	 * Administrador para redireccionar al controllador /api/v1/index

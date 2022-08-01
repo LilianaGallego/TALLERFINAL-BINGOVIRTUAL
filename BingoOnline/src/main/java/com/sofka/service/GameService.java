@@ -1,11 +1,7 @@
 package com.sofka.service;
 
-import com.sofka.domain.BingoDomain;
-import com.sofka.domain.BoardDomain;
-import com.sofka.domain.UserDomain;
-import com.sofka.repository.BingoRepository;
-import com.sofka.repository.BoardRepository;
-import com.sofka.repository.UserRepository;
+import com.sofka.domain.*;
+import com.sofka.repository.*;
 import com.sofka.service.interfaces.IGameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -43,9 +39,15 @@ public class GameService implements IGameService {
 	private BingoRepository bingoRepository;
 
 	/**
+	 * Repositorio del numero del tablero
+	 */
+	@Autowired
+	private NumberBRepository numberBRepository;
+
+	/**
 	 * Devuelve una lista de Usuarios con todos los usuarios que estan jugando
 	 *
-	 * @return
+	 * @return userRepository lista de usuarios
 	 *
 	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
 	 * @since 1.0.0
@@ -57,9 +59,37 @@ public class GameService implements IGameService {
 	}
 
 	/**
+	 * Devuelve una lista de tableros con todos los tableros
+	 *
+	 * @return boardRepository lista de tableros
+	 *
+	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	 * @since 1.0.0
+	 */
+	@Override
+	@Transactional(readOnly = true)
+	public List<BoardDomain> listBoards() {
+		return boardRepository.findAll();
+	}
+
+	/**
+	 * Devuelve una lista de numeros
+	 *
+	 * @return numberBRepository lista de numeros
+	 *
+	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	 * @since 1.0.0
+	 */
+	@Override
+	@Transactional(readOnly = true)
+	public List<NumberBDomain> listNumbersB() {
+		return numberBRepository.findAll();
+	}
+
+	/**
 	 * Devuelve una lista de los numeros del bingo
 	 *
-	 * @return
+	 * @return boardRepository numeros del tablero
 	 *
 	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
 	 * @since 1.0.0
@@ -141,7 +171,22 @@ public class GameService implements IGameService {
 	 */
 	@Override
 	public BingoDomain createBingo(BingoDomain bingo) {
+
 		return bingoRepository.save(bingo);
+	}
+
+	/**
+	 * Crea un numero de la letra b en el sistema
+	 *
+	 * @param numberB Objeto del numero de la letra b a crear
+	 * @return Objeto del numero de la letra b creado
+	 *
+	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	 * @since 1.0.0
+	 */
+	@Override
+	public NumberBDomain createNumberB(NumberBDomain numberB) {
+		return numberBRepository.save(numberB);
 	}
 
 	/**

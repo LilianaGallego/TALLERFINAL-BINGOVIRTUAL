@@ -1,17 +1,12 @@
 package com.sofka.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
-import javax.persistence.Table;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GenerationType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Column;
-import javax.persistence.OneToOne;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -34,44 +29,21 @@ public class BoardDomain {
      * Punto de enlace con la entidad usuario (un usuario puede tener solo  un tablero)
      */
     @OneToOne(fetch = FetchType.LAZY, targetEntity = UserDomain.class, optional = false)
-    @JoinColumn(name = "boa_user_id", nullable = false)
+    @JoinColumn(name = "use_id", nullable = false, unique = true)
     @JsonBackReference
-    private UserDomain userDomain;
+    private UserDomain user;
 
     /**
-     * Número del tablero
+     * Punto de enlace entre la entidad del tablero y  la entidad numero b
+     * (un tablero puede tener muchos numeros de la letra b)
      */
-    @Column(name = "boa_number", nullable = false)
-    private Integer number;
-
-    /**
-     * Número para la letra b
-     */
-    @Column(name = "boa_listb", nullable = false)
-    private Integer listb;
-
-    /**
-     * Número para la letra i
-     */
-    @Column(name = "boa_listi", nullable = false)
-    private Integer listi;
-
-    /**
-     * Número para la letra n
-     */
-    @Column(name = "boa_listn", nullable = false)
-    private Integer listn;
-
-    /**
-     * Número para la letra g
-     */
-    @Column(name = "boa_listg", nullable = false)
-    private Integer listg;
-
-    /**
-     * Número para la letra o
-     */
-    @Column(name = "boa_listo", nullable = false)
-    private Integer listo;
+    @OneToMany(
+            fetch = FetchType.EAGER,
+            targetEntity = NumberBDomain.class,
+            cascade = CascadeType.REMOVE,
+            mappedBy = "board"
+    )
+    @JsonManagedReference
+    private List<NumberBDomain> numbersB = new ArrayList<>();
 
 }

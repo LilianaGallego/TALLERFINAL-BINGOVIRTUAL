@@ -6,7 +6,7 @@ USE bingovirtual;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS user(
   use_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-  use_id_login VARCHAR(50) NOT NULL  PRIMARY KEY
+  use_id_login VARCHAR(50) NOT NULL 
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -16,22 +16,23 @@ CREATE TABLE IF NOT EXISTS user(
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS board(
   boa_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-  boa_user_id INTEGER UNSIGNED NOT NULL,
-  boa_listb INTEGER UNSIGNED NOT NULL,
-  boa_listi INTEGER UNSIGNED NOT NULL,
-  boa_listn INTEGER UNSIGNED NOT NULL,
-  boa_listg INTEGER UNSIGNED NOT NULL,
-  boa_listo INTEGER UNSIGNED NOT NULL
-
+  use_id INTEGER UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE INDEX board_boa_listb_Idx ON board(boa_listb) USING BTREE;
-CREATE INDEX board_boa_listi_Idx ON board(boa_listi) USING BTREE;
-CREATE INDEX board_boa_listn_Idx ON board(boa_listn) USING BTREE;
-CREATE INDEX board_boa_listg_Idx ON board(boa_listg) USING BTREE;
-CREATE INDEX board_boa_listo_Idx ON board(boa_listo) USING BTREE;
-CREATE UNIQUE INDEX board_boa_user_id_boa_boa_Idx ON board (boa_user_id,boa_id) USING BTREE;
+CREATE UNIQUE INDEX board_boa_use_id_boa_board_Idx ON board (use_id,boa_id) USING BTREE;
 
+-- -----------------------------------------------------
+-- Tabla numero b
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS numberb(
+  numb_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  numb_board_id INTEGER UNSIGNED NOT NULL,
+  numb_number INTEGER UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE UNIQUE INDEX numberb_numb_board_id_numb_numberb_Idx ON numberb (numb_board_id,numb_number) USING BTREE;
+CREATE INDEX  numberb_numb_number_Idx ON numberb (numb_number) USING BTREE;
+CREATE INDEX  numberb_numb_board_id_Idx ON numberb (numb_board_id) USING BTREE;
 
 -- -----------------------------------------------------
 -- Tabla bingo
@@ -52,11 +53,10 @@ CREATE INDEX bingo_bin_listn_Idx ON bingo(bin_listn) USING BTREE;
 CREATE INDEX bingo_bin_listg_Idx ON bingo(bin_listg) USING BTREE;
 CREATE INDEX bingo_bin_listo_Idx ON bingo(bin_listo) USING BTREE;
 
-
 -- -----------------------------------------------------
 -- Insercion de información Tabla bingo
 -- -----------------------------------------------------
-INSERT INTO cbingo (bin_listb, bin_listi, bin_listn,  bin_listg, bin_listo)
+INSERT INTO bingo (bin_listb, bin_listi, bin_listn,  bin_listg, bin_listo)
 VALUES
  (1, 16, 31, 46, 61),
  (2, 17, 32, 47, 62),

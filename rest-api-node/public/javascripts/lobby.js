@@ -60,7 +60,6 @@ const userList = async () => {
         let id = data[i]._id;
         let username = data[i].username;
         console.log(id);
-        addUserMySql(id);
         body += `<tr  >
                   <td>${id}</td>
                   <td>${username}</td>
@@ -72,22 +71,39 @@ const userList = async () => {
 }
 
 
+
 /**
- * funcion para agregar el id del usuario que esta en el
- * juego
- * @param id identificador del usuario a agregar
+ * funcion para mostrar el bingo en la tabla
+ *
  * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
  * @since 1.0.0
  */
-const addUserMySql = (id) => {
-  fetch("http://localhost:9090/api/v1/user", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({id}),
-  });
+const showBingo = async () =>{
+  let body = "";
+
+  await fetch("http://localhost:9090/api/v1/listBingo")
+    .then((response) => response.json())
+    .then((json) => {
+    let data = json.data
+    let listb = data[0]
+    let listi = data[1]
+    listb.forEach(element => {
+      console.log(element);
+      
+    });
+    /* for (let i = 0; i < listb.length; i++) {
+      const element = listb[i];
+      
+    } */
+   
+});
+
+document.getElementById("tbingo").innerHTML = body;
 }
+
+
 
 //Llamado de funciones
 counting();
 userList();
-
+showBingo();

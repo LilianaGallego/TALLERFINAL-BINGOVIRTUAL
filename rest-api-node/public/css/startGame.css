@@ -3,13 +3,30 @@ body {
     font-size: 14px;
     margin: 0 auto;
     text-align: center;
-    width: 680px;
+    width: 1350px;
+}
+
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+  }
+
+.navbar { 
+    background: rgba(79, 209, 74, 0.6); padding: 5px 20px; 
+  } 
+
+.button.login {
+    display: none;
+}
+
+.button.secondary {
+    border-bottom: 1px #444 solid; 
 }
 
 footer {
    
     font-weight: bold;
-    margin: 10px auto; 
+    margin:auto; 
     padding: 15px;       
 }
 
@@ -17,7 +34,7 @@ table {
     border: 1px solid rgb(112, 133, 201);
     border-radius: 30px;
     box-shadow: 2px 2px 5px gray;
-    margin: 0 auto;
+    margin:  auto;
     padding: 10px 5px 5px;
     background-color: blue;
 }
@@ -25,7 +42,7 @@ table {
 h1 {
     color: steelblue;
     font-size: 4em;
-    margin: .2em 0;
+    margin:  0;
     text-shadow: 1px 1px 1px #eee, 2px 2px 6px #999;
 }
 
@@ -55,6 +72,17 @@ th {
     color: aqua;
 }
 
+#titletbl{
+    font-size: 20px;
+    color: blue;
+}
+
+#tbl-user{
+    font-size: 10px;
+    width: 800px; ;
+    color: #660066;
+}
+
 /* free cell */
 .cell22 {
 	background-color: rgb(69, 155, 66);
@@ -75,6 +103,15 @@ button {
     color: #660066;
 }
 
+button.before:hover{
+    background-color:red ;
+    border:pink solid 2px;
+    color: pink;
+    font-size: 2.8em; 
+
+
+}
+
 /* caller stuff */
 p, #message {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -92,6 +129,7 @@ div, #past, #called {
     color: #660066;
 }
 
+
 #past{
     color: none;
     border: none;
@@ -108,7 +146,14 @@ div, #past, #called {
     font-weight: 50px;
     font-weight: bold;
     background-color: hotpink;
+    width:180px;
+    height:180px;
+    border-radius:200px;
+    border: none;
+    padding-top: 40px;
+    box-shadow: rgb(141, 83, 112) 20px 10px 10px
 }
+
 
 /* overlay and popup messages styling */
 #results {
@@ -138,4 +183,6 @@ div, #past, #called {
     z-index: 100;
 }
 
-
+.navbar-nav  li {
+    font-size: 10px;  white-space: nowrap; 
+  } 

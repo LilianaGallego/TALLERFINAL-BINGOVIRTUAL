@@ -16,7 +16,7 @@ public class BingoOnlineApplication {
 	/**
 	 * Método principal con el que inicia el sistema
 	 *
-	 * @param args
+	 * @param args argumentos
 	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
 	 * @since 1.0.0
 	 */

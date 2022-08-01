@@ -73,15 +73,62 @@ public interface IGameService {
 	public List<BingoDomain> getListBingo(String field, Sort.Direction order);
 
 	/**
-	 * Devuelve una lista de numeros
+	 * Devuelve una lista de numeros dela letra b
 	 *
-	 * @return numberBRepository lista de numeros
+	 * @return numberBRepository lista de numeros por la
+	 * letra b
 	 *
 	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
 	 * @since 1.0.0
 	 */
 	public List<NumberBDomain> listNumbersB();
 
+	///**
+	// * Devuelve una lista de numeros dela letra i
+	// *
+	// * @return numberBRepository lista de numeros por la
+	// * letra i
+	// *
+	// * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	// * @since 1.0.0
+	// */
+	//public List<NumberIDomain> listNumbersI();
+	//
+	//
+	///**
+	// * Devuelve una lista de numeros dela letra n
+	// *
+	// * @return numberBRepository lista de numeros por la
+	// * letra n
+	// *
+	// * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	// * @since 1.0.0
+	// */
+	//public List<NumberNDomain> listNumbersN();
+	//
+	//
+	///**
+	// * Devuelve una lista de numeros de la letra g
+	// *
+	// * @return numberBRepository lista de numeros por la
+	// * letra g
+	// *
+	// * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	// * @since 1.0.0
+	// */
+	//public List<NumberGDomain> listNumbersG();
+	//
+	//
+	///**
+	// * Devuelve una lista de numeros de la letra o
+	// *
+	// * @return numberBRepository lista de numeros por la
+	// * letra o
+	// *
+	// * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	// * @since 1.0.0
+	// */
+	//public List<NumberODomain> listNumbersO();
 	/**
 	 * Crea un usuario en el sistema
 	 *
@@ -117,15 +164,60 @@ public interface IGameService {
 
 
 	/**
-	 * Crea un numero del tablero
+	 * Crea un numero de la letra b en el sistema
 	 *
-	 * @param numberB Objeto del numero del tablero
+	 * @param numberB Objeto del numero de la letra b a crear
 	 * @return Objeto del numero de la letra b creado
 	 *
 	 * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
 	 * @since 1.0.0
 	 */
 	public NumberBDomain createNumberB(NumberBDomain numberB);
+
+	///**
+	// * Crea un numero de la letra i en el sistema
+	// *
+	// * @param numberI Objeto del numero de la letra i a crear
+	// * @return Objeto del numero de la letra i creado
+	// *
+	// * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	// * @since 1.0.0
+	// */
+	//public NumberIDomain createNumberI(NumberIDomain numberI);
+	//
+	///**
+	// * Crea un numero de la letra n en el sistema
+	// *
+	// * @param numberN Objeto del numero de la letra b a crear
+	// * @return Objeto del numero de la letra n creado
+	// *
+	// * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	// * @since 1.0.0
+	// */
+	//public NumberNDomain createNumberN(NumberNDomain numberN);
+	//
+	//
+	///**
+	// * Crea un numero de la letra g en el sistema
+	// *
+	// * @param numberG Objeto del numero de la letra g a crear
+	// * @return Objeto del numero de la letra g creado
+	// *
+	// * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	// * @since 1.0.0
+	// */
+	//public NumberGDomain createNumberG(NumberGDomain numberG);
+	//
+	///**
+	// * Crea un numero de la letra o en el sistema
+	// *
+	// * @param numberO Objeto del numero de la letra O a crear
+	// * @return Objeto del numero de la letra O creado
+	// *
+	// * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+	// * @since 1.0.0
+	// */
+	//public NumberODomain createNumberO(NumberODomain numberO);
 
 	/**
 	 * Borra un usuario del sistema basado en su identificador
