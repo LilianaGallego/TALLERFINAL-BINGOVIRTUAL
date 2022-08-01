@@ -2,7 +2,6 @@
     <head>
     
         <title>EL GRAN BUDA "Bingo Virtual"</title>
-        <script defer src="/javascript/main.js"> </script>
         <link
           rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -10,90 +9,47 @@
           crossorigin="anonymous"
         />
         
-        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="../../public/css/style.css" />
+        <link rel="stylesheet" href="../../public/css/index.css" />
+        <script defer src="../../public/javascript/main.js"> </script>
+        
     </head>
 
   <body>
+    
     <header>
       <nav class="navbar navbar-expand-lg bg-success" style="width: 1350px" > 
+        <div class="container text-align-center">
+            <ul class="navbar-nav mr-auto"> 
+            <li class="nav item active">
+                <img style="width: 5%; height:100%" src="../../public/images/logo.bingo.png" alt="">
+                <h1 style="color: white;">BINGO VIRTUAL EL GRAN BUDA</h1>
+            </li> 
+            
+            
+            
+            </ul> 
+        </div>
         <ul class="navbar-nav mr-auto"> 
-          <li class="nav item active">
-            <img style="width: 10%; height:10px" src="/images/logo.bingo.png" alt="">
-            <h1 style="color: white;">BINGO VIRTUAL EL GRAN BUDA</h1>
-          </li> 
-          
-          <li class="item button login"><a class="btn btn-primary" href="http://localhost:3000/api/v1/users/signin">INGRESAR</a></li> 
-          <li class="item button secondary" id="btn-out"><a class="btn btn-danger" href="#">SALIR</a></li>
-          
-        
-        </ul> 
+
+            <li style="text-decoration: none;" class="item button login"><a class="btn btn-primary" href="http://localhost:3000/api/v1/users/signin">INGRESAR</a></li> 
+        </ul>
       </nav>
 
     </header>
-    <div class="content">
-        <section class="h-80 ">
-            <div class="container py-5 h-80">
-                <div class="row d-flex justify-content-center align-items-center h-80">
-                    <div class="col-xl-10">
-                        <div class="card rounded-3 text-black" id="border">
-                            <div class="row g-0">
-                                <div class="col-lg-6">
-                                    <div class="card-body p-md-5 mx-md-4" id="card">
+    
+    <div class="container justify-content-center" id="content">
+        <h1>BIENVENIDO</h1>
 
-                                        <div class="text-center">
-                                            
-                                            <Table>
-                                                <tr>
-                                                    <th>
-                                                        <img src="/images/logo.bingo.png" alt="logo" />
-                                                    </th>
-                                                    <th>
-                                                        <h4 class="mt-1 mb-5 pb-1">EL GRAN BUDA</h4>
-                                                    </th>
-                                                </tr>
-                                            </Table>
-                                        </div>
-                                        <br>
-                                        <form>
+        <p>Para ingresar al Bingo Virtual por favor dar click en el boton INGRESAR y 
+            si no esta registrado dar click eb registrarse, de lo contrario ingresar
+            los datos con los que se registro en el sistema para poder ir al lobby posteriormente
+            iniciar el juego
+        </p>
+        <br>
+        <a class="btn btn-primary" href="http://localhost:3000/api/v1/users/signin">INGRESAR</a>
 
-                                            <div class="form-outline mb-4">
-                                                <input type="email" id="username" name="username" class="form-control"
-                                                    placeholder="Nombre de usuario"/>
-                                                <label for=""></label>
-                                            </div>
-                                            <div class="form-outline mb-4">
-                                                <input type="password" id="password" name="password" class="form-control"
-                                                    placeholder="Contraseña" />
-                                            </div>
-
-                                            <div class="text-center pt-1 mb-5 pb-1">
-                                                <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
-                                                        id="btnLogin">INGRESAR
-                                                    
-                                                    <a href="./lobby.hbs"></a>
-                                                    </button>
-                                                <a class="text-muted" href="./signup">Registrarse</a>
-                                                
-                                            </div>
-
-                                            <p class="medium mb-0">Para ingresar al lobby del bingo, si ya esta
-                                                registrado ingrese con su usuario y contraseña sino dar click en Registrarse
-                                            </p>
-                                        </form>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
-
-   
     
   </body>
 </html>
