@@ -2,7 +2,6 @@
     <head>
     
         <title>EL GRAN BUDA "Bingo Virtual"</title>
-        <script defer src="/javascript/main.js"> </script>
         <link
           rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -10,32 +9,47 @@
           crossorigin="anonymous"
         />
         
-        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="../../public/css/style.css" />
+        <link rel="stylesheet" href="../../public/css/index.css" />
+        <script defer src="../../public/javascript/main.js"> </script>
+        
     </head>
 
   <body>
+    
     <header>
       <nav class="navbar navbar-expand-lg bg-success" style="width: 1350px" > 
+        <div class="container text-align-center">
+            <ul class="navbar-nav mr-auto"> 
+            <li class="nav item active">
+                <img style="width: 5%; height:100%" src="../../public/images/logo.bingo.png" alt="">
+                <h1 style="color: white;">BINGO VIRTUAL EL GRAN BUDA</h1>
+            </li> 
+            
+            
+            
+            </ul> 
+        </div>
         <ul class="navbar-nav mr-auto"> 
-          <li class="nav item active">
-            <img style="width: 10%; height:10px" src="/images/logo.bingo.png" alt="">
-            <h1 style="color: white;">BINGO VIRTUAL EL GRAN BUDA</h1>
-          </li> 
-          
-          <li class="item button login"><a class="btn btn-primary" href="http://localhost:3000/api/v1/users/signin">INGRESAR</a></li> 
-          
-        
-        </ul> 
+
+            <li style="text-decoration: none;" class="item button login"><a class="btn btn-primary" href="http://localhost:3000/api/v1/users/signin">INGRESAR</a></li> 
+        </ul>
       </nav>
 
     </header>
-    <h1>BIENVENIDO</h1>
+    
+    <div class="container justify-content-center" id="content">
+        <h1>BIENVENIDO</h1>
 
-    <p>Para ingresar al Bingo Virtual por favor dar click en el boton INGRESAR y 
-        si no esta registrado dar click eb registrarse, de lo contrario ingresar
-        los datos con los que se registro en el sistema para poder ir al lobby posteriormente
-        iniciar el juego
-    </p>
-    <a class="btn btn-primary" href="http://localhost:3000/api/v1/users/signin">INGRESAR</a>
+        <p>Para ingresar al Bingo Virtual por favor dar click en el boton INGRESAR y 
+            si no esta registrado dar click eb registrarse, de lo contrario ingresar
+            los datos con los que se registro en el sistema para poder ir al lobby posteriormente
+            iniciar el juego
+        </p>
+        <br>
+        <a class="btn btn-primary" href="http://localhost:3000/api/v1/users/signin">INGRESAR</a>
+
+    </div>
+    
   </body>
 </html>
