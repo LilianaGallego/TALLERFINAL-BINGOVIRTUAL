@@ -84,18 +84,8 @@ const showBingo = async () =>{
   await fetch("http://localhost:9090/api/v1/listBingo")
     .then((response) => response.json())
     .then((json) => {
-    let data = json.data
-    let listb = data[0]
-    let listi = data[1]
-    listb.forEach(element => {
-      console.log(element);
-      
-    });
-    /* for (let i = 0; i < listb.length; i++) {
-      const element = listb[i];
-      
-    } */
-   
+     
+    
 });
 
 document.getElementById("tbingo").innerHTML = body;
