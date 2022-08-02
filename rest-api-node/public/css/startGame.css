@@ -185,4 +185,8 @@ div, #past, #called {
 
 .navbar-nav  li {
     font-size: 10px;  white-space: nowrap; 
-  } 
+} 
+
+#end{
+    display: none;
+}

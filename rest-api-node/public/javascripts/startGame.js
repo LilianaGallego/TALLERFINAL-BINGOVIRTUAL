@@ -105,7 +105,6 @@ function init() {
   startGame = false;
 
   document.getElementById("results").addEventListener("click", () => {
-    this.style.display = "none";
     document.getElementById("overlay").style.display = "none";
     if (!startGame) {
       timer = window.setInterval(nextNumber, 5000);
@@ -114,6 +113,7 @@ function init() {
 
   timer = window.setInterval(nextNumber, 5000);
 }
+
 
 /**
  * funcion para obtener el siguiente numero aleatorio
@@ -267,11 +267,13 @@ const validation = () => {
 
   if (startGame == true) {
     alert("Ganaste!");
-    document.getElementById("end").style.backgroundImage =
-      "url(images/premio.jpg)";
+    document.getElementById("end").style.display = "block";
+    document.getElementById("results").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
   } else {
-    document.getElementById("winner").innerHTML =
+      document.getElementById("winner").innerHTML =
       "Lo siento has perdido y quedas bloqueado!";
+    
   }
   document.getElementById("results").style.display = "block";
   document.getElementById("overlay").style.display = "block";
@@ -377,9 +379,39 @@ const addUserMySql = (idLogin) => {
       let user = data.data;
       console.log("imprime al crear");
       sendBoard(user, idLogin);
+      listUser();
     });
+    
 };
 
+
+/**
+ * funcion para listar los usuarios que estan jugando
+ * juego
+ * @author Martha Liliana Gallego<lilianagallegom@gmail.com>
+ * @since 1.0.0
+ */
+ const listUser = async() => {
+  await fetch("http://localhost:9090/api/v1/users")
+    .then(response => response.json())
+    .then(data => {
+      let users = data.data;
+      let body = " ";
+      for (let i = 0; i < users.length; i++) {
+    
+          let id = users[i].id;
+          let idLogin = users[i].idLogin;
+          console.log(id);
+          body += `<tr  >
+                    <td id="titletbl">${id}</td>
+                    <td id="titletbl">${idLogin}</td>
+  
+                  </tr>`; 
+        }      
+      
+      document.getElementById("tbusers").innerHTML = body;
+})
+}
 /**
  * funcion para obtener los datos del tablero que se van a enviar
  * a la base de datos
